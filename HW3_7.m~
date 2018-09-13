@@ -1,0 +1,63 @@
+clear; 
+
+syms C A lambda;
+
+
+p = 2*C^.5 *A^.5; % objective function
+c =  150 - A - .5C; % constraint function
+
+fsurf(@(C,A) 2*C^.5 *A^.5,[0 12])
+
+% setup Lagrange 
+
+P = p+(lambda*c);
+disp('Profit equals');
+disp(P);
+
+P1A = diff(P,A);
+
+
+P1C = diff(P,C);
+
+P1l = diff(P,lambda);
+
+P2AA = diff(P1A, A);
+P2CC = diff(P1C, C);
+P2AC = diff(P1A, C);
+
+disp('first derivative -> A');
+pretty(P1A);
+
+disp('first derivative -> C');
+pretty(P1C);
+
+disp('first derivative -> l');
+pretty(P1l);
+
+
+disp('second derivative -> xx');
+pretty(P2AA);
+
+disp('second derivative -> yy');
+pretty(P2CC);
+
+
+disp('second derivative -> xy');
+pretty(P2xy);
+
+
+% start of solving the three equations 
+eqn1 = P1x == 0;
+eqn2 = P1y == 0;
+eqn3 = P1l == 0;
+sol = solve([eqn1, eqn2, eqn3], [x, y, lambda]);
+xSol = sol.x;
+ySol = sol.y;
+lambdaSol = sol.lambda;
+
+disp('x ='); 
+disp(xSol);
+disp('y =');
+disp(ySol);
+disp('lambda =');
+disp(lambdaSol);

@@ -1,0 +1,91 @@
+clear; 
+
+syms x y lambda;
+
+
+u = x^.5 * y^.5; % objective function
+c =  200 - 2*x - 4*y; % constraint function
+
+
+
+% setup Lagrange 
+
+L = u+(lambda*c);
+disp('Lagrange Function');
+disp(L);
+
+% Lagrange First order differentials
+L1x = diff(L,x);
+L1y = diff(L,y);
+L1l = diff(L,lambda);
+
+% Lagrange First order differentials
+L2xx = diff(L1x, x);
+L2yy = diff(L1y, y);
+L2xy = diff(L1x, y);
+
+disp('Lagrange First Order Conditions');
+disp('first derivative wrt A');
+pretty(L1x);
+
+disp('first derivative -> C');
+pretty(L1y);
+
+disp('first derivative -> l');
+pretty(L1l);
+
+
+disp('second derivative -> xx');
+pretty(L2xx);
+
+disp('second derivative -> yy');
+pretty(L2yy);
+
+
+disp('second derivative -> xy');
+pretty(L2xy);
+
+
+% start of solving the three equations 
+eqn1 = L1x == 0;
+eqn2 = L1y == 0;
+eqn3 = L1l == 0;
+
+
+disp('Lagrange first order conditions');
+disp('first derivative -> x = 0');
+pretty(eqn1);
+
+disp('first derivative -> y = 0');
+pretty(eqn2);
+
+disp('first derivative -> l = 0');
+pretty(eqn3);
+
+
+sol = solve([eqn1, eqn2, eqn3], [x, y, lambda]);
+xSol = sol.x;
+ySol = sol.y;
+lambdaSol = sol.lambda;
+
+disp('x* ='); 
+disp(xSol);
+disp('y* =');
+disp(ySol);
+disp('lambda* =');
+disp(lambdaSol);
+
+
+subs(u,x,);
+disp(ans);
+double(ans);
+TR2Qstar = ans;
+%image for problem
+
+fsurf(u);
+fsurf([0 100]);
+
+hold on
+plot(double(xSol), double(subs(u,xSol)),'ro'); % plot critical points
+
+hold off;
