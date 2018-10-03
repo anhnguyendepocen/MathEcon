@@ -105,6 +105,6 @@ disp('Second Order Test (Test 2) Result')
 disp(ans);
 T2_Result = ans;
 
-if T2_Result < 0
+% if T2_Result < 0
 
 

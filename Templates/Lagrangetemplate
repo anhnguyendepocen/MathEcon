@@ -1,0 +1,44 @@
+  Author: Cliff Rodriguez
+  Date: September 2017
+  Institution: University of Colorado - Denver; Economics Department
+Objective function:
+A^(1/2) + B^(1/2)
+ 
+Constraint function:
+240 - 3*B - 2*A
+ 
+Lagrange function:
+A^(1/2) - Lambda*(2*A + 3*B - 240) + B^(1/2)
+ 
+A* = 
+72
+ 
+B* = 
+32
+ 
+Lambda*
+2^(1/2)/48
+ 
+Optimized Output/Utility
+32^(1/2) + 72^(1/2)
+ 
+Lagrange Function First Order Conditions
+1/(2*A^(1/2)) - 2*Lambda == 0
+ 
+1/(2*B^(1/2)) - 3*Lambda == 0
+ 
+240 - 3*B - 2*A == 0
+ 
+If the constraint were relaxed by 1 then expected utility is expected to change in the same direction as the relaxation by: 
+2^(1/2)/48
+ 
+note: Youngs Theorem holds
+A* = 
+72
+ 
+B* = 
+32
+ 
+Lambda* = 
+2^(1/2)/48
+ 
